@@ -29,12 +29,12 @@
 
   <script>
     // --- CONFIGURATION ---
-    const audioFiles = [
-      { id: "1L23ogX5DmUv_oykgxCNESFwQl2FiNtQa" },
-      { id: "1mkU9jb6ay_7flAlVBVZgSTu9fgw7Jc-C" },
-      { id: "1mgrP3p165mkKpCUFrA4O0xWToebkmXPI" },
-      { id: "1nLhsC8WOfBXvr4FLOc37X499UbZocPLX" }
-    ];
+	const audioFiles = [
+	  { url: "https://facundopareja.github.io/audio-player/1.mpeg" },
+	  { url: "https://facundopareja.github.io/audio-player/2.mpeg" },
+	  { url: "https://facundopareja.github.io/audio-player/3.mpeg" },
+	  { url: "https://facundopareja.github.io/audio-player/4.mpeg" },
+	];
 
     const validCodes = ["A7XQ9P2LDM","H3UZV4N8KC","T1JYB6F9RE","M9DW3X5KLT",
                         "P8NQ4J7SAH","C2YV5L9TRX","R7MZ1K8GQB","E6JH4S9WPU",
@@ -75,11 +75,9 @@
     // --- PLAYBACK LOGIC ---
     buttons.forEach((btn, index) => {
       btn.addEventListener("click", () => {
-        const fileId = audioFiles[index].id;
-        const url = `https://docs.google.com/uc?export=download&id=${fileId}`;
-
-        player.src = url;
-        player.play();
+	// In button click:
+	player.src = audioFiles[index].url;
+	player.play();
 
         // Disable this button after audio ends
         player.onended = () => {
